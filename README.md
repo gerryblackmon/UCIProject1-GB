@@ -104,4 +104,4 @@ Answer the following questions to fill in the blanks:_
   - I had to update the `hosts` file to create a `webserver` group and a `elk` server group.
 
 - _Which URL do you navigate to in order to check that the ELK server is running?
-- https://http://3.86.92.219:5601/
+- https://3.86.92.219:5601/
