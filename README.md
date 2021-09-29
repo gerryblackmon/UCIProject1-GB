@@ -23,10 +23,10 @@ The main purpose of this network is to expose a load-balanced and monitored inst
 
 Load balancing ensures that the application will be highly available, in addition to restricting access to the network.
 - The security aspects the Load Balancer protects are designed to distribute traffic equally between Webservers 1 and 2 located in seperate availability zones. This will ensure that in the event of a disaster or Denial of Service, access will continue.  
-- The purpose and advantages of using the Jumpbox are that all administrative traffic must pass through the ELK Security Group firewall and be run through this gateway for making changes? 
-- Restrict access to the network and direct traffic to balance between webservers.  Jump box is used as a defense in depth measure to restrict access to the back-end of the webservers.
+- The purpose and advantages of using the Jumpbox are that all administrative traffic must pass through the ELK Security Group firewall and be run through this gateway machine for making changes.
+- Restrict access to the network and direct traffic to balance between webservers.  Jumpbox is used as a defense-in-depth measure to restrict access to the back-end of the webservers.
 
-Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the configurations and system files.
+Integrating an ELK server allows the administrator to easily monitor the otherwise vulnerable VMs for changes to the configurations and system files.
 Filebeat monitors: SSH logins, account logins, and sudo commands.
 Metricbeat records: CPU, RAM and Network usage levels.
 
@@ -41,7 +41,7 @@ The configuration details of each machine may be found below.
 
 ### Access Policies
 
-The machines on the internal network are not exposed to the public Internet. 
+The machines on the internal network are not exposed to the public Internet.   Only the Webservers 1 and 2 (located in separate availability zones and load balanced) can be accessed by the public. 
 
 Only the Jumpbox machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
 - The User of the jumpbox should only be accessible from my IP address.
@@ -53,7 +53,7 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes                  | My IP address    |
+| Jump Box | NO                 | My IP address    |
 |  Elk-Ubunto        |  NO                    |      172.31.27.94                |
 |     Webserver1     |  Yes                   |     Public                 |
 |     Webserver2     |  Yes                   |     Public                 |
@@ -86,7 +86,23 @@ These Beats allow us to collect the following information from each machine:
 - Metricbeat collects cpu, ram, and network usage in order to monitor the health of the system and prevent a denial of service attack
 
 ### Using the Playbook
-In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
+In order to use the playbook, you will need to have an Ansible control node already configured.   Some commands listed below can assist in the navigation and implemetation of these details
+
+sudo docker pull
+{in order to download docker image}
+sudo docker ps 
+{lists active dockers on a machine}
+sudo docker container list -a  
+{displays all dockers on the server}
+sudo docker start 
+{starts docker}
+sudo docker attach 
+{attaches connection to docker}
+ansible all -m ping
+{ping all of the hosts}
+ansible docker-container {the docker-container module can be used to download and manage docker containers}
+
+Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
 - Copy the /filebeat-config.yml file to /etc/filebeat-config.yml.
