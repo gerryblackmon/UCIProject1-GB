@@ -92,15 +92,19 @@ In order to use the playbook, you will need to have an Ansible control node alre
 {in order to download docker image}
 - sudo docker ps 
  {lists active dockers on a machine}
-- sudo docker container list -a  
-{displays all dockers on the server}
+- sudo docker container list -a
+{displays all server on the server}
+- ansible all -m ping
+{ping all of the hosts}
+- ansible docker-container 
+{the docker-container module can be used to download and manage docker containers}  
+
+To Initiate Docker <include container name>
+
 - sudo docker start <input name>
 {starts docker}
 - sudo docker attach <input name>
 {attaches connection to docker}
-- ansible all -m ping
-{ping all of the hosts}
-- ansible docker-container {the docker-container module can be used to download and manage docker containers}
 
 Assuming you have such a control node provisioned: 
 
