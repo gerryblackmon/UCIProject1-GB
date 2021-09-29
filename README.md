@@ -94,9 +94,9 @@ sudo docker ps
 {lists active dockers on a machine}
 sudo docker container list -a  
 {displays all dockers on the server}
-sudo docker start 
+sudo docker start <input name>
 {starts docker}
-sudo docker attach 
+sudo docker attach <input name>
 {attaches connection to docker}
 ansible all -m ping
 {ping all of the hosts}
