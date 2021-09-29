@@ -6,7 +6,7 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on AWS. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the `yaml` file may be used to install only certain pieces of it, such as Filebeat.
 
-  - [ansibleplaybook.yml](Ansible/ansibleplaybook.yml)._
+  - [elkplaybook.yaml](Ansible/elkplaybook.yaml)._
 
 This document contains the following details:
 - Description of the Topology
@@ -94,9 +94,9 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to `/etc/ folder` to check that the installation worked as expected.
 
 
-- The playbook file is named `ansibleplaybook.yml` And it is loocated in the playbook folder in my ansible container.
--Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
-  - I had to update the `hosts` file to create a `webserver` group and a `elk` server group.
+- The playbook file is named `elkplaybook.yml` And it is located in the playbook folder in my ansible container.
+- How do I specify which machine to install the ELK server on versus which to install Filebeat on?
+  - I had to update the `hosts` file to create a `webserver` group and a `elk` server group in order to make ansible run the playbook on specific machines.
 
-- _Which URL do you navigate to in order to check that the ELK server is running?
-- https://3.86.92.219:5601/
+- Navigate to the following URL in order to check that the ELK server is running?
+- http://52.90.115.3:5601/:5601
