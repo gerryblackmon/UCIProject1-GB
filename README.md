@@ -101,9 +101,9 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 ### To Initiate Docker {include container name}
 
-- sudo docker start (input container name)
+- sudo docker start {include container name}
 {starts docker}
-- sudo docker attach (input container name)
+- sudo docker attach {input container name}
 {attaches connection to docker}
 
 Assuming you have such a control node provisioned: 
