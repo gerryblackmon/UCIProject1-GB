@@ -109,16 +109,18 @@ In order to use the playbook, you will need to have an Ansible control node alre
 Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the /filebeat-config.yml file to /etc/filebeat-config.yml.
+- Update the ansible.cfg file to include ELK server host information
+- Run elkplaybook.yml 
+- Copy the /filebeat-config.yml file to /etc/ansible/filebeat-config.yml.
 - Update the `filebeat-config.yml` file to include the kibana host login url and elastic search host url.
-- Run the playbook, and navigate to `/etc/ folder` to check that the installation worked as expected.
+- Run the playbooks, and navigate to `/etc/ansible folder` to check that the installation worked as expected.
 
 
-- The playbook file is named `elkplaybook.yml` And it is located in the playbook folder in my ansible container.
-- How do I specify which machine to install the ELK server on versus which to install Filebeat on?
-  - I had to update the `hosts` file to create a `webserver` group and a `elk` server group in order to make ansible run the playbook on specific machines.
 
-- Navigate to the following URL in order to check that the ELK server is running?
+- The playbook file is named `elkplaybook.yml` as well as additional playbooks and configuration files are located in /etc/ansible within the container
+- Update the `hosts` file to create a `webserver` group and a `elk` server group in order to make ansible run the elkplaybook and filebeatplaybook properly on specific machines. 
+
+- Navigate to the following URL in order to check that the ELK server is running. Kibana can be used to monitor and control various performance metrics.
 - http://52.90.115.3:5601/:5601
 
 
